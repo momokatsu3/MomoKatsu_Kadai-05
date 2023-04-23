@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MomoKatsu_Kadai_05" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F6-qe-2za">
+                                <rect key="frame" x="150" y="192" width="93.333333333333314" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="計算開始"/>
+                                <connections>
+                                    <action selector="calculationStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGH-si-D10"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="計算結果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLx-r3-XYE">
+                                <rect key="frame" x="162" y="276.33333333333331" width="69.333333333333314" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7Dt-ZT-uho">
+                                <rect key="frame" x="66.666666666666686" y="119" width="260" height="38"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hensu1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Nd-wD-OFW">
+                                        <rect key="frame" x="0.0" y="3" width="100" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="N5K-YQ-5l8"/>
+                                            <constraint firstAttribute="height" constant="32" id="cV3-oV-n20"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="÷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQG-Yt-3lZ">
+                                        <rect key="frame" x="112" y="1" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="0Ug-AW-JEh"/>
+                                            <constraint firstAttribute="height" constant="36" id="HJi-84-Nc0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Hensu2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1A-5x-aex">
+                                        <rect key="frame" x="160" y="3" width="100" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="cKZ-G1-b8W"/>
+                                            <constraint firstAttribute="height" constant="32" id="m4Z-AR-ffZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="Qvr-Rb-JEJ"/>
+                                    <constraint firstAttribute="height" constant="38" id="gKW-e8-GGW"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3F6-qe-2za" firstAttribute="top" secondItem="7Dt-ZT-uho" secondAttribute="bottom" constant="35" id="J8O-9P-Yc9"/>
+                            <constraint firstItem="7Dt-ZT-uho" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="Yty-G3-0nn"/>
+                            <constraint firstItem="7Dt-ZT-uho" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bZC-KZ-v3V"/>
+                            <constraint firstItem="hLx-r3-XYE" firstAttribute="top" secondItem="3F6-qe-2za" secondAttribute="bottom" constant="50" id="fLl-R3-q6p"/>
+                            <constraint firstItem="3F6-qe-2za" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mwU-gH-jwW"/>
+                            <constraint firstItem="hLx-r3-XYE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xdC-47-da5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calculationResultLabel" destination="hLx-r3-XYE" id="pvj-uL-1ZS"/>
+                        <outlet property="textField1" destination="7Nd-wD-OFW" id="rEl-XW-RIH"/>
+                        <outlet property="textField2" destination="a1A-5x-aex" id="6ED-7Y-LDL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98.473282442748086" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
