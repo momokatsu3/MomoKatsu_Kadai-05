@@ -32,29 +32,41 @@ class ViewController: UIViewController {
         
         // 本関数で使用する変数の設定と初期化
         var totalData: Double = 0.0
-        var hensuData_1: Double = 0.0
-        var hensuData_2: Double = 0.0
-        
+
+        // テキストフィールドへ文字入力した場合、"０"とする。
+        let hensuData_1 = Double(textField1.text ?? "") ?? 0
+        let hensuData_2 = Double(textField2.text ?? "") ?? 0
+
+        print("\n割られる数：'", textField1.text!, "'  割る数：'", textField2.text!, "'")
+        print("割られる数：", hensuData_1, "割る数：", hensuData_2)
+
         // textField1が未入力の場合、アラートを発生
-        if textField1.text == "" {
+        if textField1.text! == "" {
             disp_Alert ( mainTitle: "課題５", subTitle: "割られる数を入力して下さい" )
+            calculationResultLabel.text = "計算結果："
         }
-        else {
-            hensuData_1 = Double( textField1.text! )!
+        if textField1.text! != "0" && hensuData_1 == 0 {
+            disp_Alert ( mainTitle: "課題５", subTitle: "割られる側に数字を入力して下さい" )
         }
         
         // textField2が未入力の場合、アラートを発生
-        if textField2.text == "" {
+        if textField2.text! == "" {
             disp_Alert ( mainTitle: "課題５", subTitle: "割る数を入力して下さい" )
+            calculationResultLabel.text = "計算結果："
         }
         else {
             // textField2が"０"の場合、アラートを発生
-            if textField2.text == "0" {
-                disp_Alert ( mainTitle: "課題５", subTitle: "割る数には０を入力しないで下さい" )
+            if hensuData_2 == 0 {
+                if textField2.text! == "0" {
+                    disp_Alert ( mainTitle: "課題５", subTitle: "割る数には０を入力しないで下さい" )
+                    calculationResultLabel.text = "計算結果："
+                }
+                if textField2.text! != "0" && hensuData_2 == 0 {
+                    disp_Alert ( mainTitle: "課題５", subTitle: "割る側に数字を入力して下さい" )
+                }
             }
             else {
                 // 計算結果を表示
-                hensuData_2 = Double( textField2.text! )!
                 totalData = hensuData_1 / hensuData_2
                 calculationResultLabel.text = "計算結果：" + String( totalData )
             }
