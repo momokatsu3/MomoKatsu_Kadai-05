@@ -29,48 +29,33 @@ class ViewController: UIViewController {
 
     // 計算開始ボタンのクリックにより、ラベルに計算結果を表示する。
     @IBAction func calculationStart(_ sender: Any) {
-        
-        // 本関数で使用する変数の設定と初期化
-        var totalData: Double = 0.0
-
-        // テキストフィールドへ文字入力した場合、"０"とする。
-        let hensuData_1 = Double(textField1.text ?? "") ?? 0
-        let hensuData_2 = Double(textField2.text ?? "") ?? 0
-
-        print("\n割られる数：'", textField1.text!, "'  割る数：'", textField2.text!, "'")
-        print("割られる数：", hensuData_1, "割る数：", hensuData_2)
-
-        // textField1が未入力の場合、アラートを発生
-        if textField1.text! == "" {
+        calculationResultLabel.text = "計算結果："
+        guard textField1.text?.isEmpty == false else {
             disp_Alert ( mainTitle: "課題５", subTitle: "割られる数を入力して下さい" )
-            calculationResultLabel.text = "計算結果："
+            return
         }
-        if textField1.text! != "0" && hensuData_1 == 0 {
+
+        guard let value1 = Double(textField1.text ?? "") else {
             disp_Alert ( mainTitle: "課題５", subTitle: "割られる側に数字を入力して下さい" )
+            return
         }
-        
-        // textField2が未入力の場合、アラートを発生
-        if textField2.text! == "" {
+
+        guard textField2.text?.isEmpty == false else {
             disp_Alert ( mainTitle: "課題５", subTitle: "割る数を入力して下さい" )
-            calculationResultLabel.text = "計算結果："
+            return
         }
-        else {
-            // textField2が"０"の場合、アラートを発生
-            if hensuData_2 == 0 {
-                if textField2.text! == "0" {
-                    disp_Alert ( mainTitle: "課題５", subTitle: "割る数には０を入力しないで下さい" )
-                    calculationResultLabel.text = "計算結果："
-                }
-                if textField2.text! != "0" && hensuData_2 == 0 {
-                    disp_Alert ( mainTitle: "課題５", subTitle: "割る側に数字を入力して下さい" )
-                }
-            }
-            else {
-                // 計算結果を表示
-                totalData = hensuData_1 / hensuData_2
-                calculationResultLabel.text = "計算結果：" + String( totalData )
-            }
+
+        guard let value2 = Double(textField2.text ?? "") else {
+            disp_Alert ( mainTitle: "課題５", subTitle: "割る側に数字を入力して下さい" )
+            return
         }
+
+        guard value2 != 0 else {
+            disp_Alert ( mainTitle: "課題５", subTitle: "割る数には０を入力しないで下さい" )
+            return
+        }
+
+        calculationResultLabel.text = "計算結果：" + String( value1 / value2 )
     }
 
     // 「タイトル」と「サブタイトル」の引数によりアラートダイアログを表示する
